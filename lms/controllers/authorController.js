@@ -30,14 +30,14 @@ routes.post('/author',function(req,res){
     }
 })
 
-//delete operation
-routes.get('/author/:id',function(req,res){
+//delete
+routes.delete('/author/:id',function(req,res){
   authorDao.removeAuthor(req.params.id, function(err,result){
     if(err){
       res.status(400);
       res.send('Delete author failed');
     }
-    res.send('Delete Book Successful');
+    res.send('Delete author Successful');
   });
 })
 module.exports = routes;

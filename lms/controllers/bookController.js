@@ -12,14 +12,20 @@ routes.get('/book',function(req,res){
 
 routes.post('/book', function(req, res){
   var book = req.body;
-  bookDao.addBook(book, function(err, result){
+  var callback= function(err, result){
     if(err){
       res.status(400);
-      res.send('Add Book Failed!');
+      res.send('operation on Book Failed!');
     }
     res.status(201);
-    res.send('Add Book Successful!');
-  });
+    res.send('operation on Book Successful!');
+  }
+  if(book.book_id == null){ //add
+    bookDao.addBook(book, callback);
+
+  }else{  //update
+    bookDao.updateBook(book,callback);
+  }
 
 });
 

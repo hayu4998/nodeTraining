@@ -6,6 +6,12 @@ exports.getAllAuthors = function(cb){
       });
 };
 
+exports.getExactAuthor = function(bookId, cb){
+  db.query('select * from lms.tbl_author where author_id = ?', [authorId], function(err,res){
+    cb(err,result);
+  })
+}
+
 exports.removeAuthor = function(authorId,cb){
   db.beginTransaction(function(err){
     if(err){
