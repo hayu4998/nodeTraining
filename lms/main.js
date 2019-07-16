@@ -18,5 +18,7 @@ app.use(require('./controllers/bookController'));
 
 app.use(require('./controllers/authorController'));
 
-app.listen(3000);
-console.log('Server running in port: 3000 ...')
+app.use(require('./controllers/genreController'));
+
+app.listen(8080);
+console.log('Server running in port: 8080 ...')
