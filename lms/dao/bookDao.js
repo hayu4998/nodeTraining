@@ -1,8 +1,15 @@
 var db = require('./db');
+var adao = require('./authorDao');
 
 //read all books
 exports.getAllBooks = function(cb){
-    db.query('select * from lms.tbl_book', cb);
+    db.query('select * from lms.tbl_book', function(err,res){
+      if(err){
+        cb(err,null);
+      }
+      cb(err,res);
+    });
+
 };
 
 //read one book
@@ -54,7 +61,7 @@ exports.updateBook = function(book,callback){
     if(err){
       callback(err,null);
     };
-    db.query("update lms.tbl_book set title = ?, publisher_id = ?",[book.title, book.publisher_id],function(err,res){
+    db.query("update lms.tbl_book set title = ?, publisher_id = ? where book_id = ?",[book.title, book.publisher_id, book.book_id],function(err,res){
       if(err){
         db.rollback(function(err,res){
           callback(err,res);

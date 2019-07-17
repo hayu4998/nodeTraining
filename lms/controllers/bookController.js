@@ -35,6 +35,7 @@ routes.delete('/book/:id', function(req, res){
       res.status(400);
       res.send('Delete Book Failed!');
     }
+    res.status(201);
     res.send('Delete Book Successful!');
   });
 });

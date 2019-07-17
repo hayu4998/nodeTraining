@@ -14,7 +14,7 @@ routes.get('/author',function(req,res){
 //add,update operations
 routes.post('/author',function(req,res){
     var author = req.body;
-    var callback = function(err,res){
+    var callback = function(err,result){
       if(err){
         res.status(400);
         res.send('operation failed');

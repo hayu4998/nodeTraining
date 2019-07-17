@@ -6,7 +6,7 @@ exports.getAllAuthors = function(cb){
       });
 };
 
-exports.getExactAuthor = function(bookId, cb){
+exports.getExactAuthor = function(authorId, cb){
   db.query('select * from lms.tbl_author where author_id = ?', [authorId], function(err,res){
     cb(err,result);
   })
