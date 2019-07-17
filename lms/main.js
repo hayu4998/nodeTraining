@@ -20,5 +20,7 @@ app.use(require('./controllers/authorController'));
 
 app.use(require('./controllers/genreController'));
 
+app.use(require('./controllers/publisherController'));
+
 app.listen(8080);
 console.log('Server running in port: 8080 ...')
