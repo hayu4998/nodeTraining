@@ -12,6 +12,13 @@ exports.getExactAuthor = function(authorId, cb){
   })
 }
 
+exports.getAuthorByBookId = function(bookId,cb){
+  db.query('select * from lms.tbl_author where author_id in (select author_id from lms.tbl_book_authors where book_id = ?)',
+  [bookId], function(err,result){
+    cb(err,result);
+  })
+}
+
 exports.removeAuthor = function(authorId,cb){
   db.beginTransaction(function(err){
     if(err){

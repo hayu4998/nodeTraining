@@ -16,9 +16,10 @@ routes.post('/book', function(req, res){
     if(err){
       res.status(400);
       res.send('operation on Book Failed!');
+    }else{
+      res.status(201);
+      //res.send('operation on Book Successful!');
     }
-    res.status(201);
-    res.send('operation on Book Successful!');
   }
   if(book.book_id == null){ //add
     bookDao.addBook(book, callback);
