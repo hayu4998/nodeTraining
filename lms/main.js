@@ -2,10 +2,10 @@ var bodyParser = require('body-parser')
 var express = require('express');
 var app = express();
 
-var author = require('./models').tbl_author;
-author.create({
-  author_name: "sequelize"
-})
+// var author = require('./models').tbl_author;
+// author.create({
+//   author_name: "sequelize"
+// })
 
 
 // parse application/x-www-form-urlencoded
